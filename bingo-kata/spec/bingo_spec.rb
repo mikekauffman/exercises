@@ -39,6 +39,16 @@ describe Card do
     @new_card.mark_card(1)
     expect(@new_card.card[0][0]).to eq "x"
   end
+  it "determines when a card has won bingo" do
+    @new_card.create_card
+    @new_card.fill_card
+    @new_card.card[4][0] = "x"
+    @new_card.card[4][1] = "x"
+    @new_card.card[4][2] = "x"
+    @new_card.card[4][3] = "x"
+    @new_card.card[4][4] = "x"
+    expect(@new_card.is_winner?).to eq true
+  end
 end
 
 

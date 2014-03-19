@@ -25,10 +25,22 @@ class Card
     end
     card[3][2] = "x"
   end
+
   def mark_card(called_number)
     self.card.each do |row|
       if row.include?(called_number)
-        row.collect! {|number| (number == called_number) ? "x" : number }
+        row.collect! { |number| (number == called_number) ? "x" : number }
+      end
+      if is_winner?
+        puts "I WIN!"
+      end
+    end
+  end
+
+  def is_winner?
+    self.card.each do |row|
+      if !(row & (1..75).to_a).any?
+        return true
       end
     end
   end
