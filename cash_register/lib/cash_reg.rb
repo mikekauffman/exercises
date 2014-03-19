@@ -1,13 +1,19 @@
 class CashRegister
-  def initialize(starting_total)
+  def initialize(starting_total=0)
     @total = starting_total
 
   end
 
   def purchase(price)
-    purchase_total = @total + price
+    @total = @total + price
+    @total
+  end
+  def total
+    @total
+  end
 
-    purchase_total
+  def payment(money)
+    money - @total
   end
 
 end
