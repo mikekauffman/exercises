@@ -68,7 +68,17 @@ describe Card do
     @new_card.card[3][3] = "x"
     @new_card.card[4][4] = "x"
     expect(@new_card.is_winner?).to eq true
-    end
+  end
+  it "determines when a card has won bingo with a diagonal win bottom-left to top right" do
+    @new_card.create_card
+    @new_card.fill_card
+    @new_card.card[4][0] = "x"
+    @new_card.card[3][1] = "x"
+    @new_card.card[2][2] = "x"
+    @new_card.card[1][3] = "x"
+    @new_card.card[0][4] = "x"
+    expect(@new_card.is_winner?).to eq true
+  end
 end
 
 

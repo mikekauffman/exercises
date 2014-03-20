@@ -42,7 +42,9 @@ class Card
       true
     elsif check_columns == true
       true
-    elsif check_diagonal == true
+    elsif check_diagonal_top_to_bottom == true
+      true
+    elsif check_diagonal_bottom_to_top == true
       true
     else
       false
@@ -68,7 +70,7 @@ class Card
       end
     end
   end
-  def check_diagonal
+  def check_diagonal_top_to_bottom
       @results_diag = []
       5.times do |num|
         @results_diag << "x" if self.card[num][num] == "x"
@@ -76,5 +78,18 @@ class Card
       if @results_diag.count("x") == 5
        return true
       end
+  end
+  def check_diagonal_bottom_to_top
+    i = 4
+    @results_diag_2 = []
+    while i >= 0
+      5.times do |num|
+      @results_diag_2 << "x" if self.card[i][num] == "x"
+      i -= 1
+      end
     end
+    if @results_diag_2.count("x") == 5
+      return true
+    end
+  end
 end
