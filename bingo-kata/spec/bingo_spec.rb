@@ -52,13 +52,23 @@ describe Card do
   it "determines when a card has won bingo with a winning column" do
     @new_card.create_card
     @new_card.fill_card
-    @new_card.card[0][0] = "x"
-    @new_card.card[1][0] = "x"
-    @new_card.card[2][0] = "x"
-    @new_card.card[3][0] = "x"
-    @new_card.card[4][0] = "x"
+    @new_card.card[0][1] = "x"
+    @new_card.card[1][1] = "x"
+    @new_card.card[2][1] = "x"
+    @new_card.card[3][1] = "x"
+    @new_card.card[4][1] = "x"
     expect(@new_card.is_winner?).to eq true
   end
+  it "determines when a card has won bingo with a diagonal win top-left to bottom right" do
+    @new_card.create_card
+    @new_card.fill_card
+    @new_card.card[0][0] = "x"
+    @new_card.card[1][1] = "x"
+    @new_card.card[2][2] = "x"
+    @new_card.card[3][3] = "x"
+    @new_card.card[4][4] = "x"
+    expect(@new_card.is_winner?).to eq true
+    end
 end
 
 

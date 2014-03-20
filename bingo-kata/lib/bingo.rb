@@ -42,8 +42,8 @@ class Card
       true
     elsif check_columns == true
       true
-      #elsif check_diagonal
-      # true
+    elsif check_diagonal == true
+      true
     else
       false
     end
@@ -58,14 +58,23 @@ class Card
   end
 
   def check_columns
-    5.times do |row_num|
+    5.times do |col_num|
       @results = []
-      5.times do |col_num|
-        @results << "x" if self.card[col_num][row_num] == "x"
+      5.times do |row_num|
+        @results << "x" if self.card[row_num][col_num] == "x"
       end
       if @results.count("x") == 5
         return true
       end
     end
   end
+  def check_diagonal
+      @results_diag = []
+      5.times do |num|
+        @results_diag << "x" if self.card[num][num] == "x"
+      end
+      if @results_diag.count("x") == 5
+       return true
+      end
+    end
 end
