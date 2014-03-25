@@ -1,4 +1,3 @@
-
 class Palindrome
 
   def initialize
@@ -6,7 +5,7 @@ class Palindrome
 
   def palindrome?(sentence)
     clean_string = sentence.downcase.gsub("", "")
-    clean_string  ==  clean_string.reverse
+    clean_string == clean_string.reverse
   end
 
 end
